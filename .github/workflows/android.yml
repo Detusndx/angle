@@ -26,6 +26,14 @@ jobs:
   # uses: lukka/get-cmake@5979409e62bdf841487c5fb3c053149de97a86d3
       uses: lukka/get-cmake@v3.31.2
 
+    - name: generate args
+      run: gn args out/Android <<< "target_os = \"android\"
+target_cpu = \"arm64\"
+angle_enable_vulkan = true
+is_component_build = false
+is_official_build = true
+is_debug = false"
+
       # dis don work ://
     - name: Build angle
       run: autoninja -C out/Android angle_apks
