@@ -25,9 +25,10 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: lukka/get-cmake@5979409e62bdf841487c5fb3c053149de97a86d3
       uses: lukka/get-cmake@v3.31.2
-
+      
+   # https://gn.googlesource.com/gn/+/HEAD/docs/cross_compiles.md
     - name: generate args
-      run: gn args out/Android <<< "target_os = \"android\"\ntarget_cpu = \"arm64\"\nangle_enable_vulkan = true\nis_component_build = false\nis_official_build = true\nis_debug = false"
+      run: gn gen out/Android --args='target_os = "android" target_cpu = "arm64" angle_enable_vulkan = true is_component_build = false is_official_build = true is_debug = false'
 
       # dis don work ://
     - name: Build angle
