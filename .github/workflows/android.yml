@@ -18,12 +18,14 @@ jobs:
     - name: setup-depot-tools
       uses: newkdev/setup-depot-tools@v1.0.1
 
-    - name: sync project?
+    - name: gclient setup
       #run: fetch angle
-      run: gclient runhooks
+      run: |
+        echo 'solutions = [{ "managed": False, "name": "src","url": "https://chromium.googlesource.com/chromium/src.git", "custom_deps": {},"deps_file": ".DEPS.git", "safesync_url": "",},]' > .gclient
+        gclient runhooks
       
-    - name: Install build deps 
-      run: ./build/install-build-deps.sh
+  #  - name: Install build deps 
+   #   run: ./build/install-build-deps.sh
 
     - name: get-cmake
   # You may pin to the exact commit or the version.
