@@ -21,6 +21,11 @@ jobs:
  #   - name: Install build deps 
       #run: ./build/install-build-deps.sh
 
+    - name: get-cmake
+  # You may pin to the exact commit or the version.
+  # uses: lukka/get-cmake@5979409e62bdf841487c5fb3c053149de97a86d3
+      uses: lukka/get-cmake@v3.31.2
+
       # dis don work ://
     - name: Build angle
       run: autoninja -C out/Android angle_apks
