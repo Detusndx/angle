@@ -18,8 +18,8 @@ jobs:
     - name: setup-depot-tools
       uses: newkdev/setup-depot-tools@v1.0.1
       
-    - name: Install build deps 
-      run: ./build/install-build-deps.sh
+ #   - name: Install build deps 
+      #run: ./build/install-build-deps.sh
 
       # dis don work ://
     - name: Build angle
