@@ -17,9 +17,12 @@ jobs:
 
     - name: setup-depot-tools
       uses: newkdev/setup-depot-tools@v1.0.1
+
+    - name: fetch project?
+      run: fetch angle
       
- #   - name: Install build deps 
-      #run: ./build/install-build-deps.sh
+    - name: Install build deps 
+      run: ./build/install-build-deps.sh
 
     - name: get-cmake
   # You may pin to the exact commit or the version.
