@@ -20,7 +20,7 @@ jobs:
 
     - name: sync project?
       #run: fetch angle
-      run: gclient sync
+      run: gclient runhooks
       
     - name: Install build deps 
       run: ./build/install-build-deps.sh
