@@ -27,12 +27,7 @@ jobs:
       uses: lukka/get-cmake@v3.31.2
 
     - name: generate args
-      run: gn args out/Android <<< "target_os = \"android\"
-target_cpu = \"arm64\"
-angle_enable_vulkan = true
-is_component_build = false
-is_official_build = true
-is_debug = false"
+      run: gn args out/Android <<< "target_os = \"android\"\ntarget_cpu = \"arm64\"\nangle_enable_vulkan = true\nis_component_build = false\nis_official_build = true\nis_debug = false"
 
       # dis don work ://
     - name: Build angle
