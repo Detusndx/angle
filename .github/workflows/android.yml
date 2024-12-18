@@ -1,0 +1,26 @@
+name: Android CI
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Python
+      uses: actions/setup-python@v5.3.0
+
+    - name: setup-depot-tools
+      uses: newkdev/setup-depot-tools@v1.0.1
+      
+    - name: Install build deps 
+      run: ./build/install-build-deps.sh
+
+      # dis don work ://
+    - name: Build angle
+      run: autoninja -C out/Android angle_apks
