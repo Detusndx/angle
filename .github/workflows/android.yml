@@ -21,7 +21,7 @@ jobs:
     - name: gclient setup
       #run: fetch angle
       run: |
-        echo 'solutions = [{ "managed": False, "name": "src","url": "https://chromium.googlesource.com/chromium/src.git", "custom_deps": {},"deps_file": ".DEPS.git", "safesync_url": "",},]' > .gclient
+        echo 'solutions = [{ "managed": False, "name": "angle","url": "https://chromium.googlesource.com/angle/angle.git", "custom_deps": {},"deps_file": ".DEPS.git", "safesync_url": "",},]' > .gclient
         gclient sync --force
         gclient runhooks
       
