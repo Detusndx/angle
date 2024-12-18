@@ -18,8 +18,9 @@ jobs:
     - name: setup-depot-tools
       uses: newkdev/setup-depot-tools@v1.0.1
 
-    - name: fetch project?
-      run: fetch angle
+    - name: sync project?
+      #run: fetch angle
+      run: gclient sync
       
     - name: Install build deps 
       run: ./build/install-build-deps.sh
