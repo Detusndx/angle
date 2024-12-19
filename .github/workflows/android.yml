@@ -35,7 +35,9 @@ jobs:
       
    # https://gn.googlesource.com/gn/+/HEAD/docs/cross_compiles.md
     - name: generate args
-      run: gn gen out/Android --args='target_os = "android" target_cpu = "arm64" angle_enable_vulkan = true is_component_build = false is_official_build = true is_debug = false'
+      run: |
+        cd angle
+        gn gen out/Android --args='target_os = "android" target_cpu = "arm64" angle_enable_vulkan = true is_component_build = false is_official_build = true is_debug = false'
 
       # dis don work ://
     - name: Build angle
