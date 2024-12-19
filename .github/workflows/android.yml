@@ -34,11 +34,21 @@ jobs:
       uses: lukka/get-cmake@v3.31.2
       
    # https://gn.googlesource.com/gn/+/HEAD/docs/cross_compiles.md
+   # no official build? : https://issues.angleproject.org/issues/42265853
     - name: generate args
       run: |
         cd angle
-        gn gen out/Android --args='target_os = "android" target_cpu = "arm64" angle_enable_vulkan = true is_component_build = false is_official_build = true is_debug = false'
+        gn gen out/Android --args='target_os = "android" target_cpu = "arm64" angle_enable_vulkan = true is_component_build = false is_debug = false'
 
       # dis don work ://
     - name: Build angle
       run: autoninja -C out/Android angle_apks
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.5.0
+      with:
+        name: AndroidApks
+        path: out/Android/apks
+        retention-days: 30
+
+    
